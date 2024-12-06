@@ -1,0 +1,7 @@
+<h2>Lista de Videojuegos</h2>
+<ul>
+    {% for videojuego in videojuegos %}
+        <li>{{ videojuego.nombre }} - {{ videojuego.genero }} - {{ videojuego.plataforma }}</li>
+    {% endfor %}
+</ul>
+

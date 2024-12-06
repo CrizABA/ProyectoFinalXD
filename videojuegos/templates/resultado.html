@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultados de Búsqueda</title>
+</head>
+<body>
+    <h1>Resultados de Búsqueda</h1>
+
+    {% if mensaje %}
+        <p>{{ mensaje }}</p>
+    {% endif %}
+
+    {% if productos %}
+        <h2>Resultados para "{{ query }}"</h2>
+        <ul>
+            {% for videojuego in productos %}
+                <li>{{ videojuego.nombre }} - {{ videojuego.descripcion }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No se encontraron videojuegos.</p>
+    {% endif %}
+</body>
+</html>
+<!-- Formulario de contacto -->
+<h2>Manda tu experiencia por correo</h2>
+<form method="POST">
+    {% csrf_token %}
+    <label for="asunto">Asunto:</label>
+    <input type="text" name="asunto" id="asunto" required><br><br>
+    
+    <label for="mensaje">Mensaje:</label>
+    <textarea name="mensaje" id="mensaje" required></textarea><br><br>
+    
+    <label for="email">Tu correo electrónico:</label>
+    <input type="email" name="email" id="email" required><br><br>
+    
+    <button type="submit">Enviar</button>
+</form>
+
+<a href="/">Regresar</a>
+
+
+</body>
+</html>
